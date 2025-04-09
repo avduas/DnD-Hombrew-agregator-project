@@ -1,4 +1,5 @@
-/* * {
-    background-color: rgb(242, 236, 228);
-} */
-
+[data-bs-theme="sand"] {
+    --bs-body-bg: rgb(242, 236, 228);
+    --bs-body-color: #000; 
+    --bs-font-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  }

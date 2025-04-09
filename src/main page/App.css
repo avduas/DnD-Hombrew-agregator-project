@@ -1,0 +1,24 @@
+.custom-background {
+  margin: 20px 20px;
+}
+
+.blocks {
+  margin: 15px 0px;
+  border-bottom: solid;
+  border-bottom-color: rgb(201, 173, 106);
+  padding-bottom: 10px;
+}
+
+.blocks:last-child {
+  border-bottom: none;
+}
+
+.headers {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.red {
+  color: rgb(237, 28, 36);
+}

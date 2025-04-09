@@ -1,10 +1,11 @@
 {
-    "welcome": "Find your perfect homebrew D&D campaign!",
+    "welcome": "Find your perfect homebrew <1>D&D</1> campaign!",
     "New campaigns": "Top new campaigns",
     "Popular campaigns": "The most popular campaigns",
     "News": "News",
     "Forum": "Forum",
     "authorPage": "Add new campaign",
     "userPage": "User page",
-    "search": "Search"
+    "search": "Search",
+    "registration": "Registration"
 }

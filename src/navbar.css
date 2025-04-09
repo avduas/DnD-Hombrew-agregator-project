@@ -1,0 +1,22 @@
+.navbar, .navbarBrand {
+    color: #ffff;
+}
+
+/* .navbarBrand:hover {
+    color: #ffff;
+}  */
+
+
+ .navlink {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;  
+    margin: 0 30px;
+    border-radius: 5px;     
+}
+
+.navlink:hover {
+    background-color: #4D5154;
+}

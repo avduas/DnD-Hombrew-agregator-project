@@ -1,0 +1,12 @@
+.searchbar {
+    background-color: #ffff;
+}
+
+.button{
+    border: none;
+    max-width: 50px;
+}
+
+.searchLoop {
+    max-width: 100%;
+}
