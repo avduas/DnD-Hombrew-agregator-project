@@ -1,0 +1,35 @@
+.navbar, .navbarBrand {
+    color: #ffff;
+}
+
+/* .navbarBrand:hover {
+    color: #ffff;
+}  */
+
+.navLink {
+    text-decoration: none; 
+    color: #FFFFFF;
+}
+
+ .navContainer {  
+    margin: 0 30px;
+    border-radius: 5px;     
+}
+
+.navButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none; 
+    color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #212529;
+    border-radius: 5px;
+}
+
+.navButton:hover {
+    background-color: #4D5154;
+}

@@ -4,7 +4,7 @@ import "./App.css";
 import NewCampaignCards from "./main page resources/newCampaignCards";
 import MostPopularCampaignCards from "./main page resources/mostPopularCampaignCards";
 import SearchBar from "./main page resources/searchInput";
-import Navigation from "../navbar";
+import Navigation from "../navbar/navbar";
 //router will be here
 
 const Landing = () => {
