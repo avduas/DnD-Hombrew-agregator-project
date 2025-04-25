@@ -7,5 +7,9 @@
     "authorPage": "Add new campaign",
     "userPage": "User page",
     "search": "Search",
-    "registration": "Registration"
+    "registrationAndLogin": "Sign in & registration",
+    "login": "Sign in",
+    "password": "Your password",
+    "close": "Close",
+    "register": "Register"
 }

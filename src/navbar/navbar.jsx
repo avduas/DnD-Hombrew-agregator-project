@@ -4,12 +4,12 @@ import '../i18n';
 import { useTranslation } from "react-i18next";
 import "./navbar.css"
 import { NavLink } from "react-router";
-import RegistrationModal from "./navbar resources/modalRegistration";
+import LoginModal from "./navbar resources/modalLogin";
 
 const Navigation = () => {
     const { t, i18n } = useTranslation();
     return (
-        <Navbar bg="dark" data-bs-theme="dark" className="navbar">
+        <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
             <Container >
                 <Navbar.Brand href="/" className="navbarBrand"> DND Homebrew</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
@@ -31,7 +31,7 @@ const Navigation = () => {
                     {/* <Col className="navlink">{t("userPage")}</Col> */}
                     <Col className="navContainer">
                         <div className="navButton">ּ
-                            <RegistrationModal />
+                            <LoginModal />
                         </div>
                         {/* <NavLink className="navButton">
                             

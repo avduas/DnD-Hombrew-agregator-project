@@ -7,6 +7,10 @@
     "authorPage": "Добавить кампанию",
     "userPage": "Профиль",
     "search": "Поиск",
-    "registration": "Регистрация"
+    "registrationAndLogin": "Вход и регистрация",
+    "login": "Войти",
+    "password": "Пароль",
+    "close":"Закрыть",
+    "register": "Регистрация" 
   }
   
