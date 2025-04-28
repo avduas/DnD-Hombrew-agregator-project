@@ -1,16 +1,20 @@
 {
-    "welcome": "Найди свою идеальную homebrew-кампанию для <1>D&D</1>!",
-    "New campaigns": "Лучшие новые кампании",
-    "Popular campaigns": "Наиболее популярные кампании",
-    "News": "Новости",
-    "Forum": "Форум",
-    "authorPage": "Добавить кампанию",
-    "userPage": "Профиль",
-    "search": "Поиск",
-    "registrationAndLogin": "Вход и регистрация",
-    "login": "Войти",
-    "password": "Пароль",
-    "close":"Закрыть",
-    "register": "Регистрация" 
-  }
-  
+  "welcome": "Найди свою идеальную homebrew-кампанию для <1>D&D</1>!",
+  "New campaigns": "Лучшие новые кампании",
+  "Popular campaigns": "Наиболее популярные кампании",
+  "News": "Новости",
+  "Forum": "Форум",
+  "authorPage": "Добавить кампанию",
+  "userPage": "Профиль",
+  "search": "Поиск",
+  "registrationAndLogin": "Вход и регистрация",
+  "login": "Войти",
+  "password": "Пароль",
+  "close": "Закрыть",
+  "register": "Регистрация",
+  "newPassword": "Новый пароль",
+  "repeatPassword": "Повторите пароль",
+  "createNewAccount": "Создать новый аккаунт",
+  "passwordTooShort": "Пароль слишком короткий",
+  "emailInvalid": "Поле пусто или неправильный формат"
+}

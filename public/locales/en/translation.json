@@ -11,5 +11,10 @@
     "login": "Sign in",
     "password": "Your password",
     "close": "Close",
-    "register": "Register"
+    "register": "Register",
+    "newPassword": "New Password",
+    "repeatPassword": "Repeat Password",
+    "createNewAccount": "Create new account",
+    "passwordTooShort": "Password is too short",
+    "emailInvalid": "Field is empty or invalid format"
 }
