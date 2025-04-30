@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import RegistrationModal from './modalRegistration';
 import { post } from '../../api/api';
 
-function LoginModal() {
+function LoginModal({ setUser }) {
   const { t } = useTranslation();
   const [showLogin, setShowLogin] = useState(false);
   const [showRegistration, setShowRegistration] = useState(false);
@@ -19,7 +19,9 @@ function LoginModal() {
     try {
       console.log('Отправляем данные:', { email, password });
       const data = await post('/api/login', { email, password });
-      console.log("Успешный вход", data)
+      console.log("Успешный вход", data);
+      console.log("Вызываем setUser с:", data.user);
+      setUser(data.user);
       setShowLogin(false);
     } catch (error) {
       console.error('Ошибка входа:', error.message);
@@ -36,9 +38,11 @@ function LoginModal() {
     }, 100);
   };
 
-  const isPasswordInvalid = inputPasswordTouched && password.length < 3;
-  const isEmailEmpty = inputEmailTouched && (email.length == 0 || !email.includes('@'));
-  const formHasErrors = isEmailEmpty || isPasswordInvalid;
+  const isEmailValid = email.includes('@') && email.trim().length > 0;
+  const isEmailInvalid = inputEmailTouched && !isEmailValid;
+  const isPasswordValid = password.trim().length >= 3;
+  const isPasswordInvalid = inputPasswordTouched && !isPasswordValid;
+  const isFormValid = isEmailValid && isPasswordValid;
 
   return (
     <>
@@ -53,14 +57,14 @@ function LoginModal() {
         <Modal.Body>
           <Form.Label htmlFor='inputEmail'>Email</Form.Label>
           <Form.Control
-            className={`bg-white ${isEmailEmpty ? 'is-invalid' : ''}`}
+            className={`bg-white ${isEmailInvalid ? 'is-invalid' : ''}`}
             type='email'
             id='inputEmail'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => setInputEmailTouched(true)}
           />
-          {isEmailEmpty && (<div className="invalid-feedback" style={{ display: 'block' }}>
+          {isEmailInvalid && (<div className="invalid-feedback" style={{ display: 'block' }}>
             {t("emailInvalid")}
           </div>)}
           <Form.Label htmlFor="inputPassword5">{t("password")}</Form.Label>
@@ -82,7 +86,7 @@ function LoginModal() {
           <Button variant='warning' onClick={openRegistration}>
             {t("register")}
           </Button>
-          <Button variant="dark" onClick={login} disabled = {formHasErrors}>
+          <Button variant="dark" onClick={login} disabled={!isFormValid}>
             {t("login")}
           </Button>
         </Modal.Footer>

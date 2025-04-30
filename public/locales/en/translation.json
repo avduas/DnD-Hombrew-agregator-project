@@ -16,5 +16,8 @@
     "repeatPassword": "Repeat Password",
     "createNewAccount": "Create new account",
     "passwordTooShort": "Password is too short",
-    "emailInvalid": "Field is empty or invalid format"
+    "emailInvalid": "Field is empty or invalid format",
+    "hello": "Hello",
+    "logout": "Sign out",
+    "nickname": "Nickname"
 }

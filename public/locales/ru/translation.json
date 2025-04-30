@@ -16,5 +16,8 @@
   "repeatPassword": "Повторите пароль",
   "createNewAccount": "Создать новый аккаунт",
   "passwordTooShort": "Пароль слишком короткий",
-  "emailInvalid": "Поле пусто или неправильный формат"
+  "emailInvalid": "Поле пусто или неправильный формат",
+  "hello": "Здравствуй",
+  "logout": "Выйти",
+  "nickname": "Никнейм"
 }
