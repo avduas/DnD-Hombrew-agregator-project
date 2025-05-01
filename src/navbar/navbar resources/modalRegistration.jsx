@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { post } from '../../api/api';
+import { login } from '../../utils/auth';
 
-
-function RegistrationModal({ show, handleClose }) {
+function RegistrationModal({ show, handleClose, setUser }) {
   const { t } = useTranslation();
 
   const [email, setEmail] = useState('');
@@ -15,11 +15,11 @@ function RegistrationModal({ show, handleClose }) {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [emailTouched, setEmailTouched] = useState(false);
   const [passwordTouched, setPasswordTouched] = useState(false);
-  const [repeatTouched, setRepeatTouched] = useState(false);
   const [nameTouched, setNameTouched] = useState(false);
 
   const passwordMatch = password === repeatPassword;
-  const isFormValid = email.trim() !== '' &&
+  const isFormValid =
+    email.trim() !== '' &&
     password.length >= 3 &&
     password.length <= 30 &&
     passwordMatch &&
@@ -27,14 +27,14 @@ function RegistrationModal({ show, handleClose }) {
 
   const register = async () => {
     try {
-      console.log("Отправляем данные:", { email, password, name });
-      const data = await post('/api/register', { email, password, name })
-      console.log("Регистрация успешна", data)
+      const data = await post('/api/register', { email, password, name });
+      console.log("Регистрация успешна", data);
+      await login(email, password, setUser);
       handleClose();
     } catch (error) {
       console.error('Ошибка регистрации:', error.message);
     }
-  }
+  };
 
   return (
     <Modal show={show} onHide={handleClose}>
@@ -46,14 +46,15 @@ function RegistrationModal({ show, handleClose }) {
           <Form.Label htmlFor="inputEmail">Email*</Form.Label>
           <Form.Control
             className={`bg-white ${emailTouched && email.trim() === '' ? 'is-invalid' : ''}`}
-            type='email'
-            id='inputEmail'
+            type="email"
+            id="inputEmail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => setEmailTouched(true)}
             required
           />
         </Form.Group>
+
         <Form.Group>
           <Form.Label htmlFor="inputPassword5">{t("newPassword")}*</Form.Label>
           <Form.Control
@@ -65,10 +66,11 @@ function RegistrationModal({ show, handleClose }) {
             onBlur={() => setPasswordTouched(true)}
             required
           />
-          <Form.Text id='inputPassword5'>
+          <Form.Text id="inputPassword5">
             Your password must be 3-30 characters long.
           </Form.Text>
         </Form.Group>
+
         <Form.Group>
           <Form.Label htmlFor="inputPassword1">{t("repeatPassword")}</Form.Label>
           <Form.Control
@@ -77,12 +79,12 @@ function RegistrationModal({ show, handleClose }) {
             id="inputPassword1"
             value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
-            isInvalid={repeatPassword && !passwordMatch}
             required
           />
-          <Form.Group>
-            <Form.Label htmlFor="inputNickname">{t("nickname")}</Form.Label>
-          </Form.Group>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label htmlFor="inputNickname">{t("nickname")}</Form.Label>
           <Form.Control
             className={`bg-white ${nameTouched && name.trim() === '' ? 'is-invalid' : ''}`}
             type="text"

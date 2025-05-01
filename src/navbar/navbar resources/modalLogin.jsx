@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useTranslation } from "react-i18next";
 import RegistrationModal from './modalRegistration';
-import { post } from '../../api/api';
+import { login } from '../../utils/auth';
 
 function LoginModal({ setUser }) {
   const { t } = useTranslation();
@@ -15,27 +15,12 @@ function LoginModal({ setUser }) {
   const [inputPasswordTouched, setInputPasswordTouched] = useState(false);
   const [email, setEmail] = useState("");
 
-  const login = async () => {
-    try {
-      console.log('Отправляем данные:', { email, password });
-      const data = await post('/api/login', { email, password });
-      console.log("Успешный вход", data);
-      console.log("Вызываем setUser с:", data.user);
-      setUser(data.user);
-      setShowLogin(false);
-    } catch (error) {
-      console.error('Ошибка входа:', error.message);
-    }
-  };
-
-  const handleLoginClose = () => setShowLogin(false)
+  const handleLoginClose = () => setShowLogin(false);
   const handleLoginShow = () => setShowLogin(true);
 
   const openRegistration = () => {
     setShowLogin(false);
-    setTimeout(() => {
-      setShowRegistration(true);
-    }, 100);
+    setTimeout(() => setShowRegistration(true), 100);
   };
 
   const isEmailValid = email.includes('@') && email.trim().length > 0;
@@ -64,9 +49,12 @@ function LoginModal({ setUser }) {
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => setInputEmailTouched(true)}
           />
-          {isEmailInvalid && (<div className="invalid-feedback" style={{ display: 'block' }}>
-            {t("emailInvalid")}
-          </div>)}
+          {isEmailInvalid && (
+            <div className="invalid-feedback" style={{ display: 'block' }}>
+              {t("emailInvalid")}
+            </div>
+          )}
+
           <Form.Label htmlFor="inputPassword5">{t("password")}</Form.Label>
           <Form.Control
             className={`bg-white ${isPasswordInvalid ? 'is-invalid' : ''}`}
@@ -86,7 +74,7 @@ function LoginModal({ setUser }) {
           <Button variant='warning' onClick={openRegistration}>
             {t("register")}
           </Button>
-          <Button variant="dark" onClick={login} disabled={!isFormValid}>
+          <Button variant="dark" onClick={() => login(email, password, setUser, setShowLogin)} disabled={!isFormValid}>
             {t("login")}
           </Button>
         </Modal.Footer>
@@ -95,6 +83,7 @@ function LoginModal({ setUser }) {
       <RegistrationModal
         show={showRegistration}
         handleClose={() => setShowRegistration(false)}
+        setUser={setUser}
       />
     </>
   );
