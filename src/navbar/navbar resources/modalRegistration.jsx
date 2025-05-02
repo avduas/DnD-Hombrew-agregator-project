@@ -27,6 +27,7 @@ function RegistrationModal({ show, handleClose, setUser }) {
 
   const register = async () => {
     try {
+      console.log('Отправляем данные:', { email, password, name });
       const data = await post('/api/register', { email, password, name });
       console.log("Регистрация успешна", data);
       await login(email, password, setUser);
